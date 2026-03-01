@@ -6,5 +6,5 @@ The need to maintain proper indentation also has a negative effect on those who 
 
 To this end, we offer pyFix. It adds comments at the end of blocks which allow the user to understand the code without needing the indentation. The indentation is preserved, however, so the code will run with the included comments, but will be understood by users who cannot perceive the indentation, such as screen reader users reading the code embedded in a PDF file.
 
-- [Run Now}(https://richcaloggero.github.io/pyFix/pyFix.html)
+- [Run Now](https://richcaloggero.github.io/pyFix/pyFix.html)
 
