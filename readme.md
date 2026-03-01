@@ -1,6 +1,6 @@
 # PyFix
 
-Python is an incredibly flexable and well designed language enjoying world wide popularity thanks in large part to the machine learning and data science communities. However, it has one flaw: it is not a free-format language. This is a pain for developers who must always keep their indentation correct. 
+Python is an incredibly flexable and well designed language which enjoys world wide popularity thanks in large part to the machine learning and data science communities. However, it has one flaw: it is not a free-format language. This is a pain for developers who must always keep their indentation correct. 
 
 The need to maintain proper indentation also has a negative effect on those who cannot perceive indentation, or for those whose code gets mistakenly reformated due to circumstances beyond their control. For those using screen readers, this is a problem when trying to read python code embedded in media where indentation is not properly communicated, such as PDF files.
 
