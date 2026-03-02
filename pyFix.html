@@ -10,11 +10,12 @@
 <pre class="code" autofocus tabindex="0" aria-label="Python code..." contenteditable>
 </pre>
 <div class="controls">
+<label>Tab size: <input type="number" class="tab-size" value="4"></label>
 <button class="fix" accessKey="f">Fix</button>
 </div>
 
 <hr>
-<pre class="output"></pre>
+<pre class="output" style="tab-size: 4"></pre>
 
 <script type="module">
 import { fix } from "./pyFix.js";
@@ -23,8 +24,10 @@ const $code = document.querySelector(".code");
 const $output = document.querySelector(".output");
 const $controls = document.querySelector(".controls");
 const $fix = document.querySelector(".controls .fix");
+const $tabSize = document.querySelector(".tab-size");
 
 $fix.addEventListener("click", e => $output.textContent = fix($code.textContent));
+$tabSize.addEventListener("input", e => $output.setAttribute("style", `tab-size: ${$tabSize.value}`));
 </script>
 
 </body>
