@@ -1,9 +1,10 @@
-const blocks = [];
+let blocks = [];
 const blockTypes = [
 "def", "if", "else", "elif", "while", "for"
 ];
 
 export function fix (code) {
+blocks = [];
 const input = lines(code);
 const output = [];
 let lastNonblankLineIndex = -1;
@@ -87,7 +88,7 @@ return s;
 } // indent
 
 function lines (text) {
-return text.trim().split("\n");
+return text.trim().split(/\r?\n/);
 } // lines
 
 function words (line) {
@@ -133,7 +134,7 @@ function printBlock (block) {
 } // printBlock
 
 function currentBlock () {
-return blocks.slice(-1);
+return blocks.length > 0 ? blocks[blocks.length - 1] : null;
 } // currentBlock
 
 function endBlock (input, output, index, lastIndex, extraLineCount) {

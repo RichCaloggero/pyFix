@@ -1,0 +1,7 @@
+{
+	"tasks": {
+		"build": "deno run -A npm:esbuild src/extension.js --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node",
+		"watch": "deno run -A npm:esbuild src/extension.js --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node --watch",
+		"package": "deno run -A npm:@vscode/vsce package --no-dependencies"
+	}
+}

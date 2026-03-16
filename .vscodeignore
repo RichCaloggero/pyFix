@@ -1,0 +1,10 @@
+.git/**
+src/**
+node_modules/**
+*.html
+*.txt
+*.zip
+pyRestore.js
+t.py
+esbuild.js
+.gitignore

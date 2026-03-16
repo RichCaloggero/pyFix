@@ -1,0 +1,50 @@
+{
+	"name": "pyfix",
+	"displayName": "PyFix",
+	"description": "Add #end block comments to Python code for screen reader accessibility, and restore indentation from those comments",
+	"version": "0.1.0",
+	"publisher": "richcaloggero",
+	"engines": {
+		"vscode": "^1.80.0"
+	},
+	"categories": ["Other"],
+	"activationEvents": [],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "pyfix.fix",
+				"title": "PyFix: Add #end Block Comments"
+			},
+			{
+				"command": "pyfix.restore",
+				"title": "PyFix: Restore Indentation"
+			},
+			{
+				"command": "pyfix.restoreStrip",
+				"title": "PyFix: Restore Indentation and Strip #end Comments"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "pyfix.fix",
+				"key": "ctrl+shift+f5",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "pyfix.restore",
+				"key": "ctrl+shift+f6",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "pyfix.restoreStrip",
+				"key": "ctrl+shift+f7",
+				"when": "editorTextFocus"
+			}
+		]
+	},
+	"scripts": {
+		"build": "deno task build",
+		"package": "deno task package"
+	}
+}
