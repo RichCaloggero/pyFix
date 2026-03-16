@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>PyRestore</title>
+</head>
+<body>
+<h1>PyRestore</h1>
+
+<label id="code-label">
+Code with #end comments...
+<br><pre class="code" autofocus tabindex="0" contenteditable aria-labelledby="code-label">
+</pre>
+</label>
+<div class="controls">
+<label>Tab size: <input type="number" class="tab-size" value="4"></label>
+<label>Strip #end comments: <input type="checkbox" class="strip"></label>
+<button class="restore" accessKey="r">Restore</button>
+</div>
+
+<hr>
+<pre class="output" style="tab-size: 4"></pre>
+
+<script type="module">
+import { restore } from "./pyFix.js";
+
+const $code = document.querySelector(".code");
+const $output = document.querySelector(".output");
+const $controls = document.querySelector(".controls");
+const $restore = document.querySelector(".controls .restore");
+const $tabSize = document.querySelector(".controls .tab-size");
+const $strip = document.querySelector(".controls .strip");
+
+$restore.addEventListener("click", e => $output.textContent = restore($code.textContent, $strip.checked));
+$tabSize.addEventListener("input", e => $output.setAttribute("style", `tab-size: ${$tabSize.value}`));
+</script>
+
+</body>
+</html>

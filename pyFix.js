@@ -42,6 +42,36 @@ endRemainingBlocks(blocks, output);
 return output.join("\n");
 } // fix
 
+export function restore (code, stripEndComments = false) {
+const input = lines(code);
+const output = [];
+let level = 0;
+
+for (let lineIndex in input) {
+lineIndex = Number(lineIndex);
+const line = input[lineIndex];
+
+if (isBlankLine(line)) {
+output.push("");
+
+} else if (isEndComment(line)) {
+if (not(stripEndComments)) {
+output.push(indent(level) + line.trim());
+} // if
+level -= 1;
+
+} else {
+output.push(indent(level) + line.trim());
+
+if (isBlockStart(line)) {
+level += 1;
+} // if
+} // if
+} // for
+
+return output.join("\n");
+} // restore
+
 function leadingBlanks (line) {
 return line? line.match(/^([ \t]*)(.*)$/)[1] : "";
 } // leadingBlanks
@@ -63,6 +93,10 @@ return text.trim().split("\n");
 function words (line) {
 return line.trim().split(/[ \t\W]/);
 } // words
+
+function isEndComment (line) {
+return line.trim().startsWith("#end ");
+} // isEndComment
 
 function isBlockStart (line) {
 return  blockTypes.includes(words(line)[0]) && line.slice(-1) === ":";
